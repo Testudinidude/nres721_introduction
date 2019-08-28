@@ -1,11 +1,11 @@
 ---
-title: "introduction_to_genomic_data"
+title: "Introduction to genomic data"
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
-author: "TWP"
+author: "Todd W. Pierson"
 date: "8/28/2019"
 output: html_document
 ---
@@ -14,22 +14,22 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Contents of a FASTQ file
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+Reexamine formatting of FASTA files. 
+```{bash}
+head -n 2 data/example.fasta
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+Now, for FASTQ files.
+```{bash}
+head -n 4 data/example.fastq
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Multiplexing and demultiplexing
+
+[ placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here ]
+
+## Quality filtering
+
+[ placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here ]
