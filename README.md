@@ -1,2 +1,2 @@
-# nres721
-Teaching materials for NRES 721: Molecular Ecology 1 (Theory and Applications).
+# NRES 721: Introduction to genomic data
+Teaching materials for the Todd W. Pierson's first tutorial in NRES 721.
