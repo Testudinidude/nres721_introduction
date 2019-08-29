@@ -196,26 +196,35 @@ $(document).ready(function () {
 </div>
 
 
-<div id="contents-of-a-fastq-file" class="section level2">
-<h2>Contents of a FASTQ file</h2>
-<p>Reexamine formatting of FASTA files.</p>
-<pre class="bash"><code>head -n 2 data/example.fasta</code></pre>
+<p>In this tutorial, we’ll work through a basic introduction to handling raw genomic data. This will include brief lessons on:</p>
+<ol style="list-style-type: decimal">
+<li>formatting of FASTQ files;</li>
+<li>multiplexing strategies and how to demultiplex reads; and</li>
+<li>quality-filtering</li>
+</ol>
+<div id="interpreting-a-fastq-file" class="section level3">
+<h3>Interpreting a FASTQ file</h3>
+<p>Most raw genomic data come in the FASTQ format. For comparison, it is worth reviewing the structure of a FASTA format.</p>
+<p>We can peek at the first two lines of an example FASTA file of the <code>/data</code> directory. If you are following along, this command (<code>cat</code>) should be run in your Terminal window, rather than in R.</p>
+<pre class="bash"><code>cat data/example.fasta</code></pre>
 <pre><code>## &gt;sample_name
-## ATAGACATACCTATAGACG</code></pre>
-<p>Now, for FASTQ files.</p>
-<pre class="bash"><code>head -n 4 data/example.fastq</code></pre>
+## GGTCAACAAATCATAAAGATATTGGGACATTGTATATGATTTTTGGAACTTTGTCAGGAGTGGTGGGAACAACTTTGTCAGTCTGG</code></pre>
+<p>In the FASTA file, each sequence has two lines dedicated to it: one for the sample or sequence name and the other for the actual sequence. The FASTQ format is built off of this same premise, but it has a bit more information included.</p>
+<p>We can peek at an example FASTQ file in the same directory.</p>
+<pre class="bash"><code>cat data/example.fastq</code></pre>
 <pre><code>## @M00313:165:000000000-D6BK4:1:1101:15780:1379 1:N:0:CAGAGTGT+CGATCGAT
-## GGTCAACAAATCATAAAGATATTGGGACATTGTATATGATTTTTGGAACTTTGTCAGGAGTGGTGGGAACAACTTTGTCAGTCTGGATGCGAATGGAATTGGCAGCGCCAGGGGTGCAAGCCTTGTCAGGGAATCATCAATTGTATAACGT
+## GGTCAACAAATCATAAAGATATTGGGACATTGTATATGATTTTTGGAACTTTGTCAGGAGTGGTGGGAACAACTTTGTCAGTCTGG
 ## +
-## BBABBBFFAFFFBGB5BBAFBGHGHHFHGFHHHHHGHHDHHHHHGGHHHHGHHGFHGHGFBFFDFDGFHCGHHHHHHHHHHHHHHHBGHGGGEGHGGF3GFHFHGGGGEGEHGG&gt;&gt;&lt;GFGHEHGHHDFGHHEFHDGHFFHHHFGGFGHFD@</code></pre>
+## BBABBBFFAFFFBGB5BBAFBGHGHHFHGFHHHHHGHHDHHHHHGGHHHHGHHGFHGHGFBFFDFDGFHCGHHHHHHHHHHHHHHH</code></pre>
 </div>
-<div id="multiplexing-and-demultiplexing" class="section level2">
-<h2>Multiplexing and demultiplexing</h2>
+<div id="multiplexing-and-demultiplexing" class="section level3">
+<h3>Multiplexing and demultiplexing</h3>
 <p>[ placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here ]</p>
 </div>
-<div id="quality-filtering" class="section level2">
-<h2>Quality filtering</h2>
+<div id="quality-filtering" class="section level3">
+<h3>Quality filtering</h3>
 <p>[ placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here ]</p>
+<p>Next, we’ll move on to assembling an example dataset.</p>
 </div>
 
 

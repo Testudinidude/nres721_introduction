@@ -20,25 +20,29 @@ In this tutorial, we'll work through a basic introduction to handling raw genomi
 2) multiplexing strategies and how to demultiplex reads; and
 3) quality-filtering
 
-
-## Interpreting a FASTQ file
+### Interpreting a FASTQ file
 
 Most raw genomic data come in the FASTQ format. For comparison, it is worth reviewing the structure of a FASTA format. 
 
-We can peek at the first two lines of an example FASTA file of the data directory.
+We can peek at the first two lines of an example FASTA file of the `/data` directory. If you are following along, this command (`cat`) should be run in your Terminal window, rather than in R.
+
 ```{bash}
-head -n 2 data/example.fasta
+cat data/example.fasta
 ```
 
-Now, for FASTQ files.
+In the FASTA file, each sequence has two lines dedicated to it: one for the sample or sequence name and the other for the actual sequence. The FASTQ format is built off of this same premise, but it has a bit more information included.
+
+We can peek at an example FASTQ file in the same directory.
 ```{bash}
-head -n 4 data/example.fastq
+cat data/example.fastq
 ```
 
-## Multiplexing and demultiplexing
+### Multiplexing and demultiplexing
 
 [ placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here ]
 
-## Quality filtering
+### Quality filtering
 
 [ placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here placeholder text here ]
+
+Next, we'll move on to assembling an example dataset.
