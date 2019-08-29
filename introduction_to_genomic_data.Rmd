@@ -14,9 +14,18 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Contents of a FASTQ file
+In this tutorial, we'll work through a basic introduction to handling raw genomic data. This will include brief lessons on:
 
-Reexamine formatting of FASTA files. 
+1) formatting of FASTQ files;
+2) multiplexing strategies and how to demultiplex reads; and
+3) quality-filtering
+
+
+## Interpreting a FASTQ file
+
+Most raw genomic data come in the FASTQ format. For comparison, it is worth reviewing the structure of a FASTA format. 
+
+We can peek at the first two lines of an example FASTA file of the data directory.
 ```{bash}
 head -n 2 data/example.fasta
 ```
