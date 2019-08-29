@@ -6,7 +6,7 @@ knit: (function(input_file, encoding) {
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
 author: "Todd W. Pierson"
-date: "8/28/2019"
+date: "16 October 2019"
 output: html_document
 ---
 
