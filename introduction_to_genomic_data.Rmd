@@ -20,15 +20,15 @@ options(width=200)
 ```
 
 <div class="alert alert-danger">
-  <strong>Note:</strong> This brief tutorial is written as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in R. Students: if you're running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through [one of these options](https://itsfoss.com/run-linux-commands-in-windows/), just follow along for the bits in R, or just review what we're doing on the shared screen.
+  <strong>Note:</strong> This brief tutorial is written as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in `R`. Students: if you're running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through [one of these options](https://itsfoss.com/run-linux-commands-in-windows/), just follow along for the bits in `R`, or just review what we're doing on the shared screen.
 </div>
 
 ## Introduction
-In this tutorial, we'll work through a basic introduction to handling raw genomic data.
+In this tutorial, we'll work through a basic introduction to handling and understanding raw genomic data. In general, biologists often use the term "genomic" to refer to datasets consisting of more than several loci. This could mean shotgun libraries used to assemble full genomes, reduced-representation libraries (e.g., RADseq), or many other kinds of data. In practice, this usually means that these data were generated on a "next generation sequencing" or "high-throughput sequencing" platform. Today, [Illumina](https://www.illumina.com/index-d.html) platforms generate the vast majority of these data, and that's what we'll focus on for these tutorials.
 
 ## Interpreting a FASTQ file
 
-Most raw genomic data come in the FASTQ format. For comparison, it is worth reviewing the structure of a FASTA format. 
+Straight off of the sequencing platform, data are most often in a BCL format. However, most (or many) sequencing facilities will have already "demultiplexed" (see later in this tutorial) these data into individual FASTQ files. If this sounds similar to the FASTA files you're more familiar with, it's because it is! It's worth taking a minute to review the structure of a FASTA format. 
 
 We can peek at the first two lines of an example FASTA file of the `data` directory. If you are following along, the commands we'll use in this tutorial should be run in your Terminal window, rather than in `R`.
 
@@ -92,7 +92,7 @@ plotMergedPhredQuant(fq2, main = "Phred quantiles for R2")
 ```
 
 <div class="alert alert-info">
-  <strong>Discussion:</strong> What do you notice in these plots?
+  <strong>Discussion:</strong> What do you notice in these plots? How might you filter these data, and why would that be important?
 </div>
 
 Now that we've covered some of the basic concepts of interpreting and handling genomic data, we'll move on to [assembling an example dataset](https://twpierson.github.io/nres721_assembly/).
