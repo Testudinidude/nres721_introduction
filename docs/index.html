@@ -1512,7 +1512,7 @@ div.tocify {
 
 
 <div class="alert alert-danger">
-<p><strong>Note:</strong> This brief tutorial is written as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in <code>R</code>. Students: if you’re running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through <a href="https://itsfoss.com/run-linux-commands-in-windows/">one of these options</a>, just follow along for the bits in <code>R</code>, or just review what we’re doing on the shared screen.</p>
+<p><strong>Note:</strong> This brief tutorial is written as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in <code>R</code>. Students: if you’re running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through <a href="https://itsfoss.com/run-linux-commands-in-windows/">one of these options</a>, just follow along for the bits in <code>R</code>, or just review what we’re doing on the shared screen. If you wish to follow along, you can download all of the data we’ll use from the <code>data/</code> directory in the Github repository <a href="https://github.com/twpierson/nres721_introduction">here</a>.</p>
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
@@ -1520,46 +1520,52 @@ div.tocify {
 </div>
 <div id="interpreting-a-fastq-file" class="section level2">
 <h2>Interpreting a FASTQ file</h2>
-<p>Straight off of the sequencing platform, data are most often in a BCL format. However, most (or many) sequencing facilities will have already “demultiplexed” (see later in this tutorial) these data into individual FASTQ files. If this sounds similar to the FASTA files you’re more familiar with, it’s because it is! It’s worth taking a minute to review the structure of a FASTA format.</p>
-<p>We can peek at the first two lines of an example FASTA file of the <code>data</code> directory. If you are following along, the commands we’ll use in this tutorial should be run in your Terminal window, rather than in <code>R</code>.</p>
+<p>Straight off of the sequencing platform, data are most often in a BCL format. However, most (or many) sequencing facilities will have already “demultiplexed” (see later in this tutorial) these data into individual FASTQ files. If these sound similar to the FASTA files you’re more familiar with, it’s because they are! It’s worth taking a minute to review the structure of a FASTA format.</p>
+<p>We can peek at the first two lines of an example FASTA file of the <code>data/</code> directory. If you are following along, the commands we’ll use in this tutorial should be run in your Terminal window, rather than in <code>R</code>.</p>
 <pre class="bash"><code>cat data/example.fasta</code></pre>
-<pre><code>&gt;sample_name
-GGTCAACAAATCATAAAGATATTGGGACATTGTATATGATTTTTGGAACTTTGTCAGGAGTGGTGGGAACAACTTTGTCAGTCTGG</code></pre>
-<p>In the FASTA file, each sequence has two lines dedicated to it: one for the sample or sequence name and the other for the actual sequence. The FASTQ format is built off of this same premise, but it has a bit more information included.</p>
+<pre><code>&gt;example
+ATCGGCCCTGACTGCAGGACCACAGCACGACCATAGCATGACCACTCGCTGGAGCAGACGTCCTCCACCTATTTC</code></pre>
+<p>In the FASTA file, each sequence has two lines dedicated to it—one for the sample or sequence name and the other for the actual sequence. The FASTQ format is built off of this same premise, but it has a bit more information included.</p>
 <p>We can peek at an example FASTQ file in the same directory.</p>
 <pre class="bash"><code>cat data/example_R1.fastq</code></pre>
-<pre><code>@M00313:165:000000000-D6BK4:1:1101:15780:1379 1:N:0:CAGAGTGT+CGATCGAT
-GGTCAACAAATCATAAAGATATTGGGACATTGTATATGATTTTTGGAACTTTGTCAGGAGTGGTGGGAACAACTTTGTCAGTCTGG
+<pre><code>@J00138:110:HKFKKBBXX:3:1101:16092:1736 1:N:0:AGCAAGCA+CTTGTCGA
+ATCGGCCCTGACTGCAGGACCACAGCACGACCATAGCATGACCACTCGCTGGAGCAGACGTCCTCCACCTATTTC
 +
-BBABBBFFAFFFBGB5BBAFBGHGHHFHGFHHHHHGHHDHHHHHGGHHHHGHHGFHGHGFBFFDFDGFHCGHHHHHHHHHHHHHHH</code></pre>
+JFJJFJJJJJJFJJJAJJJAFJJJJJJJFJJJJFJFJJJJJJJJJJJAJJAJJFJJJJJJJJJAAJJFFJAFJFF</code></pre>
 <p>This file clearly contains more information! FASTQ files have four lines per sequencing read; they represent:</p>
 <ol style="list-style-type: decimal">
 <li>sample information in a header; this string contains information about the sequencing platform, the physical position on the “tile” where this sequencing reaction took place, and (often) index information</li>
 <li>the actual sequence read</li>
 <li>“+”; this is just a placeholder, although sometimes other information is included on this line</li>
-<li>quality score for each nucleotide of the read; this is the “Q” in “FASTQ” and is important for downstream applications.</li>
+<li>a quality score for each nucleotide of the read; this is the “Q” in “FASTQ” and is important for downstream applications.</li>
 </ol>
-<p>The <a href="https://en.wikipedia.org/wiki/FASTQ_format">Wikipedia page</a> for FASTQ files has much more useful information. In our simple example here, we can see the dual-index sequences (<code>CAGAGTGT</code> and <code>CGATCGAT</code>) at the end of the first line (more about that kind of information in the next section). Each of these four lines is present in a FASTQ file for <em>each molecule sequenced</em>. That means that for some super high-throughput platforms (e.g., the <a href="https://www.illumina.com/systems/sequencing-platforms/novaseq.html">Illumina NovaSeq</a>, which can generate up to 2.2 billion reads!), these FASTQ files can be huge.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/FASTQ_format">Wikipedia page</a> for FASTQ files has much more useful information. In our simple example here, we can see the dual-index sequences (<code>AGCAAGCA</code> and <code>CTTGTCGA</code>) at the end of the first line (more about that kind of information in the next section). Each of these four lines is present in a FASTQ file for <em>each molecule sequenced</em>. That means that for some super high-throughput platforms (e.g., the <a href="https://www.illumina.com/systems/sequencing-platforms/novaseq.html">Illumina NovaSeq</a>, which can generate up to 2.2 billion reads per lane!), these FASTQ files can be huge.</p>
 <p>You may notice that the FASTQ file we viewed has a “R1” designator in the file name. This is because on many sequencing platforms, each molecule is sequenced from both directions—generating a “read 1” (i.e., “R1”) and “read 2” (“R2”) read. Thus, we have a corresponding “R2” file. Let’s look at it:</p>
 <pre class="bash"><code>cat data/example_R2.fastq</code></pre>
-<pre><code>@M00313:165:000000000-D6BK4:1:1101:15780:1379 1:N:0:CAGAGTGT+CGATCGAT
-GGTCAACAAATCATAAAGATATTGGGACATTGTATATGATTTTTGGAACTTTGTCAGGAGTGGTGGGAACAACTTTGTCAGTCTGG
+<pre><code>@J00138:110:HKFKKBBXX:3:1101:16092:1736 2:N:0:AGCAAGCA+CTTGTCGA
+CGATCCCACTTTTTTTTTTTTTTTTTAAGAAAAAGGTGCAAATAAAAGCTAATTACATGGTGGGGGTGGTTGCCC
 +
-BBABBBFFAFFFBGB5BBAFBGHGHHFHGFHHHHHGHHDHHHHHGGHHHHGHHGFHGHGFBFFDFDGFHCGHHHHHHHHHHHHHHH</code></pre>
-<p>Note that the information from the first line is identical.</p>
+JJJJJJJJJJJJJJJJFAJAAJJJF--&lt;&lt;F7&lt;F-7--77-&lt;7&lt;-7A&lt;--A&lt;---&lt;--7-7--777-F-7---7A-</code></pre>
+<p>Note that the information from the first line is identical, but that the sequences and quality scores are different.</p>
+<div class="alert alert-info">
+<p><strong>Discussion:</strong> How long is the sequence in the R1 file? How about the R2 file? What are the implications of this if your library insert (e.g., amplicon) is 75 bp, 150 bp, or 300 bp?</p>
+</div>
 </div>
 <div id="multiplexing-and-demultiplexing" class="section level2">
 <h2>Multiplexing and demultiplexing</h2>
 <p>The best way to leverage the power of next-generation sequencing technologies to generate data for many individuals (e.g., for a typical population genetic or phylogenetic project) is to “multiplex” many samples onto a single sequencing run. For example, some Illumina NextSeq runs can generate 400 million paired-end reads per sequencing lane. For many purposes (e.g., amplicon data from a microbiome project or RADseq-style data for a population genetic project), this amount of data would be incredible overkill (and cost-prohibitive!), so it’s useful to spread these reads across many samples.</p>
-<p>To do this, we probably want to mark molecules during the library preparation stage so that we can later determine which sample they came from. This is often called “indexing” or “tagging” (or confusing, “barcoding”), and the act of pooling these samples for sequencing is “multiplexing”. Thus, when we receive our raw data, one of our first tasks is “demultiplexing”—or separate our reads by sample of origin. These indexes may be read in separate sequencing reads and stored in the FASTQ headers, or they could be in the actual sequencing read (sometimes called “in-line” indexes). There are many ways to skin a cat, and many application-specific software packages have their own way of demultiplexing reads.</p>
+<p>To do this, we probably want to mark molecules during the library preparation stage so that we can later determine which sample they came from. This is often called “indexing” or “tagging” (or confusing, “barcoding”), and the act of pooling these samples for sequencing is “multiplexing”. Thus, when we receive our raw data, one of our first tasks is “demultiplexing”—or separating our reads by sample of origin. These indexes may be read in separate sequencing reads and stored in the FASTQ headers (e.g., as we saw earlier), or they could be in the actual sequencing read (sometimes called “in-line” indexes). There are many ways to skin a cat, and many application-specific software packages have their own way of demultiplexing reads.</p>
+<div class="alert alert-info">
+<p><strong>Discussion:</strong> What might the advantages be of including indexes in multiple positions on the library molecule?</p>
+</div>
 </div>
 <div id="quality-filtering" class="section level2">
 <h2>Quality filtering</h2>
 <p>As discussed earlier, FASTQ files contain quality scores associated with each nucleotide of each read. Two general rules: 1) quality scores are generally lowest at the beginning and (especially) the end of reads; and 2) R1 data typically have higher quality scores than R2 data.</p>
-<p>Why do these quality scores matter? Simply put, they tell us information about the probability that a given nucleotide is called in error. To reduce the probability of including these erroneous data in our analyses, we can ,for example, trim sections of reads that have low quality scores or throw out reads altogether that have low overall quality scores. There are many, many ways to visualize quality score data and filter reads.</p>
+<p>Why do these quality scores matter? Simply put, they tell us information about the probability that a given nucleotide is called in error. To reduce the probability of including these erroneous data in our analyses, we can, for example, trim sections of reads that have low quality scores or throw out reads altogether that have low overall quality scores. There are many, many ways to visualize quality score data and filter reads.</p>
 <p>We’ll use a quick visualization in <code>R</code>. If you haven’t already, install the <code>seqTools</code> package (installation instructions <a href="https://bioconductor.org/packages/release/bioc/html/seqTools.html">here</a>). Then, open <code>R</code> and load the package.</p>
 <pre class="r"><code>library(seqTools)</code></pre>
-<p>Next, we’ll separately load our R1 and R2 data.</p>
+<p>Next, we’ll separately load our R1 and R2 data. This time, we’ll use real sequencing data from an environmental DNA project. These are amplicons for a “barcoding” locus used to characterize amphibian communities.</p>
 <pre class="r"><code>fq1 &lt;- fastqq(c(&quot;data/eDNA_08_R1.fastq&quot;))
 fq2 &lt;- fastqq(c(&quot;data/eDNA_08_R2.fastq&quot;))</code></pre>
 <p>Then, we can plot our quality scores.</p>
