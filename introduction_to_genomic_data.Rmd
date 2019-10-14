@@ -20,11 +20,23 @@ options(width=200)
 ```
 
 <div class="alert alert-danger">
-  <strong>Note:</strong> This brief tutorial is written as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in `R`. Students: if you're running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through [one of these options](https://itsfoss.com/run-linux-commands-in-windows/), just follow along for the bits in `R`, or just review what we're doing on the shared screen. **If you wish to follow along, you can download all of the data we'll use from the `/data` directory in the Github repository [here](https://github.com/twpierson/nres721_introduction).**
+  <strong>Note:</strong> This brief tutorial is written for UNR's NRES 721 as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in `R`. Students: if you're running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through [one of these options](https://itsfoss.com/run-linux-commands-in-windows/), just follow along for the bits in `R`, or just review what we're doing on the shared screen. 
 </div>
 
 ## Introduction
 In this tutorial, we'll work through a basic introduction to handling and understanding raw genomic data. In general, biologists often use the term "genomic" to refer to datasets consisting of more than several loci. This could mean shotgun libraries used to assemble full genomes, reduced-representation libraries (e.g., RADseq), or many other kinds of data. In practice, this usually means that these data were generated on a "next generation sequencing" or "high-throughput sequencing" platform. Today, [Illumina](https://www.illumina.com/index-d.html) platforms generate the vast majority of these data, and that's what we'll focus on for these tutorials.
+
+In this tutorial, we'll use a few example data files that we need to download. First, navigate to a local directory from which you'd like to work.
+
+```{bash, comment = NA, eval = FALSE}
+cd [your working directory]
+```
+
+Then, download the data. If you're within your working directory, the following command will download the `\data` directory and place it within it.
+
+```{bash, eval = FALSE}
+svn checkout https://github.com/twpierson/nres721_introduction/trunk/data
+```
 
 ## Interpreting a FASTQ file
 

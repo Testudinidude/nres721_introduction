@@ -1512,16 +1512,20 @@ div.tocify {
 
 
 <div class="alert alert-danger">
-<p><strong>Note:</strong> This brief tutorial is written as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in <code>R</code>. Students: if you’re running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through <a href="https://itsfoss.com/run-linux-commands-in-windows/">one of these options</a>, just follow along for the bits in <code>R</code>, or just review what we’re doing on the shared screen. If you wish to follow along, you can download all of the data we’ll use from the <code>data/</code> directory in the Github repository <a href="https://github.com/twpierson/nres721_introduction">here</a>.</p>
+<p><strong>Note:</strong> This brief tutorial is written for UNR’s NRES 721 as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in <code>R</code>. Students: if you’re running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through <a href="https://itsfoss.com/run-linux-commands-in-windows/">one of these options</a>, just follow along for the bits in <code>R</code>, or just review what we’re doing on the shared screen.</p>
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>In this tutorial, we’ll work through a basic introduction to handling and understanding raw genomic data. In general, biologists often use the term “genomic” to refer to datasets consisting of more than several loci. This could mean shotgun libraries used to assemble full genomes, reduced-representation libraries (e.g., RADseq), or many other kinds of data. In practice, this usually means that these data were generated on a “next generation sequencing” or “high-throughput sequencing” platform. Today, <a href="https://www.illumina.com/index-d.html">Illumina</a> platforms generate the vast majority of these data, and that’s what we’ll focus on for these tutorials.</p>
+<p>In this tutorial, we’ll use a few example data files that we need to download. First, navigate to a local directory from which you’d like to work.</p>
+<pre class="bash"><code>cd [your working directory]</code></pre>
+<p>Then, download the data. If you’re within your working directory, the following command will download the <code>\data</code> directory and place it within it.</p>
+<pre class="bash"><code>svn checkout https://github.com/twpierson/nres721_introduction/trunk/data</code></pre>
 </div>
 <div id="interpreting-a-fastq-file" class="section level2">
 <h2>Interpreting a FASTQ file</h2>
 <p>Straight off of the sequencing platform, data are most often in a BCL format. However, most (or many) sequencing facilities will have already “demultiplexed” (see later in this tutorial) these data into individual FASTQ files. If these sound similar to the FASTA files you’re more familiar with, it’s because they are! It’s worth taking a minute to review the structure of a FASTA format.</p>
-<p>We can peek at the first two lines of an example FASTA file of the <code>data/</code> directory. If you are following along, the commands we’ll use in this tutorial should be run in your Terminal window, rather than in <code>R</code>.</p>
+<p>We can peek at the first two lines of an example FASTA file of the <code>/data</code> directory. If you are following along, the commands we’ll use in this tutorial should be run in your Terminal window, rather than in <code>R</code>.</p>
 <pre class="bash"><code>cat data/example.fasta</code></pre>
 <pre><code>&gt;example
 ATCGGCCCTGACTGCAGGACCACAGCACGACCATAGCATGACCACTCGCTGGAGCAGACGTCCTCCACCTATTTC</code></pre>
