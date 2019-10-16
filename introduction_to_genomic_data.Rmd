@@ -98,6 +98,11 @@ We'll use a quick visualization in `R`. If you haven't already, install the `seq
 library(seqTools)
 ```
 
+We also want to navigate to our working directory.
+```{r, eval = FALSE}
+setwd("[your working directory]")
+```
+
 Next, we'll separately load our R1 and R2 data. This time, we'll use real sequencing data from an environmental DNA project. These are amplicons for a "barcoding" locus used to characterize amphibian communities. 
 
 ```{r, results = "hide", warning = FALSE, message = FALSE}

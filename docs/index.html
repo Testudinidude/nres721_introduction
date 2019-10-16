@@ -1569,6 +1569,8 @@ JJJJJJJJJJJJJJJJFAJAAJJJF--&lt;&lt;F7&lt;F-7--77-&lt;7&lt;-7A&lt;--A&lt;---&lt;-
 <p>Why do these quality scores matter? Simply put, they tell us information about the probability that a given nucleotide is called in error. To reduce the probability of including these erroneous data in our analyses, we can, for example, trim sections of reads that have low quality scores or throw out reads altogether that have low overall quality scores. There are many, many ways to visualize quality score data and filter reads.</p>
 <p>We’ll use a quick visualization in <code>R</code>. If you haven’t already, install the <code>seqTools</code> package (installation instructions <a href="https://bioconductor.org/packages/release/bioc/html/seqTools.html">here</a>). Then, open <code>R</code> and load the package.</p>
 <pre class="r"><code>library(seqTools)</code></pre>
+<p>We also want to navigate to our working directory.</p>
+<pre class="r"><code>setwd(&quot;[your working directory]&quot;)</code></pre>
 <p>Next, we’ll separately load our R1 and R2 data. This time, we’ll use real sequencing data from an environmental DNA project. These are amplicons for a “barcoding” locus used to characterize amphibian communities.</p>
 <pre class="r"><code>fq1 &lt;- fastqq(c(&quot;data/eDNA_08_R1.fastq&quot;))
 fq2 &lt;- fastqq(c(&quot;data/eDNA_08_R2.fastq&quot;))</code></pre>
