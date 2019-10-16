@@ -21,6 +21,8 @@ options(width=200)
 
 <div class="alert alert-danger">
   <strong>Note:</strong> This brief tutorial is written for UNR's NRES 721 as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in `R`. Students: if you're running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Window machine through [one of these options](https://itsfoss.com/run-linux-commands-in-windows/), just follow along for the bits in `R`, or just review what we're doing on the shared screen. 
+  
+<strong>Students: if you're using Mac/Linux, use the `svn` command further down in the document to download the data for this tutorial. If you're on a PC, you can download them from the `\data` directory [here](https://github.com/twpierson/nres721_introduction).</strong>
 </div>
 
 ## Introduction
