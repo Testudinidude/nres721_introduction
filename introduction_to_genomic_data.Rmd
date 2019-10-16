@@ -26,7 +26,7 @@ options(width=200)
 ## Introduction
 In this tutorial, we'll work through a basic introduction to handling and understanding raw genomic data. In general, biologists often use the term "genomic" to refer to datasets consisting of more than several loci. This could mean shotgun libraries used to assemble full genomes, reduced-representation libraries (e.g., RADseq), or many other kinds of data. In practice, this usually means that these data were generated on a "next generation sequencing" or "high-throughput sequencing" platform. Today, [Illumina](https://www.illumina.com/index-d.html) platforms generate the vast majority of these data, and that's what we'll focus on for these tutorials.
 
-In this tutorial, we'll use a few example data files that we need to download. First, navigate to a local directory from which you'd like to work.
+We'll use a few example data files that we need to download. First, navigate to a local directory from which you'd like to work.
 
 ```{bash, comment = NA, eval = FALSE}
 cd [your working directory]
