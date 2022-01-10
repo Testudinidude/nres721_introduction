@@ -10,8 +10,8 @@ knit: (function(input_file, encoding) {
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
-author: "Todd W. Pierson"
-date: "16 October 2019"
+author: "Todd W. Pierson and Nathan W. Byer"
+date: "9 March 2022"
 ---
 
 ```{r setup, include=FALSE}
@@ -37,7 +37,7 @@ cd [your working directory]
 Then, download the data. If you're within your working directory, the following command will download the `\data` directory and place it within it.
 
 ```{bash, eval = FALSE}
-svn checkout https://github.com/twpierson/nres721_introduction/trunk/data
+svn checkout https://github.com/testudinidude/nres721_introduction/trunk/data
 ```
 
 ## Interpreting a FASTQ file
