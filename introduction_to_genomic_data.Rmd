@@ -10,7 +10,7 @@ knit: (function(input_file, encoding) {
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
-author: "Todd W. Pierson and Nathan W. Byer"
+author: "Todd W. Pierson (Updated by Nathan W. Byer)"
 date: "9 March 2022"
 ---
 
@@ -21,8 +21,6 @@ options(width=200)
 
 <div class="alert alert-danger">
   <strong>Note:</strong> This brief tutorial is written for UNR's NRES 721 as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in `R`. Students: if you're running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Windows machine through [one of these options](https://itsfoss.com/run-linux-commands-in-windows/), just follow along for the bits in `R`, or just review what we're doing on the shared screen. 
-  
-<strong>Students: if you're using Mac/Linux, use the `svn` command further down in the document to download the data for this tutorial. If you're on a PC, you can download them from the `\data` directory [here](https://github.com/twpierson/nres721_introduction).</strong>
 </div>
 
 ## Introduction
@@ -34,11 +32,7 @@ We'll use a few example data files that we need to download. First, navigate to 
 cd [your working directory]
 ```
 
-Then, download the data. If you're within your working directory, the following command will download the `\data` directory and place it within it.
-
-```{bash, eval = FALSE}
-svn checkout https://github.com/testudinidude/nres721_introduction/trunk/data
-```
+Then, download the data from web campus. Make sure to put it in the working directory that you set above!
 
 ## Interpreting a FASTQ file
 
@@ -108,8 +102,8 @@ setwd("[your working directory]")
 Next, we'll separately load our R1 and R2 data. This time, we'll use real sequencing data from an environmental DNA project. These are amplicons for a "barcoding" locus used to characterize amphibian communities. 
 
 ```{r, results = "hide", warning = FALSE, message = FALSE}
-fq1 <- fastqq(c("data/eDNA_08_R1.fastq"))
-fq2 <- fastqq(c("data/eDNA_08_R2.fastq"))
+fq1 <- fastqq(c("data/MC1_S13_L001_R1_001.fastq"))
+fq2 <- fastqq(c("data/MC1_S13_L001_R2_001.fastq"))
 ```
 
 Then, we can plot our quality scores.
