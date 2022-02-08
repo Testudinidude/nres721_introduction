@@ -21,6 +21,8 @@ options(width=200)
 
 <div class="alert alert-danger">
   <strong>Note:</strong> This brief tutorial is written for UNR's NRES 721 as a basic introduction to genomic data using simple commands that students can run through their Terminal (Linux/Mac) or in `R`. Students: if you're running Windows (e.g., on a computer in the teaching laboratory at UNR), you can try to follow along by using the Linux commands on your Windows machine through [one of these options](https://itsfoss.com/run-linux-commands-in-windows/), just follow along for the bits in `R`, or just review what we're doing on the shared screen. 
+  
+As noted in previous classes, we have also provided a Linux virtual machine for use on Windows machines. This virtual machine should represent a useful option for running BASH/UNIX-based analyses.
 </div>
 
 ## Introduction
@@ -99,7 +101,7 @@ We also want to navigate to our working directory.
 setwd("[your working directory]")
 ```
 
-Next, we'll separately load our R1 and R2 data. This time, we'll use real sequencing data from an environmental DNA project. These are amplicons for a "barcoding" locus used to characterize amphibian communities. 
+Next, we'll separately load our R1 and R2 data. This time, we'll use real sequencing data from an custom amplicon sequencing project. These are amplicons for a suite of gene regions expected to be important to climate adaptation in turtles. Keep in mind that these products were all 150 base pairs or less.
 
 ```{r, results = "hide", warning = FALSE, message = FALSE}
 fq1 <- fastqq(c("data/MC1_S13_L001_R1_001.fastq"))
@@ -117,4 +119,4 @@ plotMergedPhredQuant(fq2, main = "Phred quantiles for R2")
   <strong>Discussion:</strong> What do you notice in these plots? How might you filter these data, and why would that be important?
 </div>
 
-Now that we've covered some of the basic concepts of interpreting and handling genomic data, we'll move on to [assembling an example dataset](https://twpierson.github.io/nres721_assembly/).
+Now that we've covered some of the basic concepts of interpreting and handling genomic data, we'll move on to assembling an example dataset.
